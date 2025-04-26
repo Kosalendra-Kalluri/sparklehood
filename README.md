@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## 🚀 AI Safety Incident Log API
 
 ## 📆 Project Overview
