@@ -108,13 +108,12 @@ def delete_trigger(id):
 
 #Main function
 if __name__ == ("__main__"):
-    try:
-        with app.app_context():
-            db.create_all()
+    with app.app_context():
+        db.create_all()
 
-            if not Incident.query.first():
-                sample_trigger = [
-                    Incident(
+        if not Incident.query.first():
+            sample_trigger = [
+                Incident(
                         title = "AI chatbot malfunction",
                         description = "giving abusive responses",
                         severity = "High"
@@ -130,8 +129,6 @@ if __name__ == ("__main__"):
                         severity = "Low"
                     )
                 ]
-                db.session.add_all(sample_trigger)
-                db.session.commit()
-    except SQLAlchemyError as e:
-        print("Error intializing the database:", e)
+            db.session.add_all(sample_trigger)
+            db.session.commit()
     app.run(debug=True)
